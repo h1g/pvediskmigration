@@ -1,7 +1,7 @@
 #!/bin/bash
 src_storage="src-stor"
 dst_storage="dst-stor"
-nodelist=`pvesh get /nodes/|grep "id"|sed 's/",//g'|sed 's/"//g'|awk '{print $3}'|sed 's/node/\/nodes/g'|grep -v sc10`
+nodelist=`pvesh get /nodes/|grep "id"|sed 's/",//g'|sed 's/"//g'|awk '{print $3}'|sed 's/node/\/nodes/g'`
 for i in ${nodelist}
 do
 echo ${i}/qemu/
