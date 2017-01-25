@@ -14,7 +14,7 @@ echo ${i} ${j}.
 for k in `pvesh get ${i}/qemu/${j}/config |grep ${src_storage}":"|awk '{print $1}'|sed 's/"//g'`
 do
 pvesh create  ${i}/qemu/${j}/move_disk -disk ${k} -storage ${dst_storage} -delete 1 &
-if [ ${migration_speed} -ne 0 ] ; then sleep 2 && pvesh create  ${i}/qemu/${j}/monitor -command "block_job_set_speed drive-${k} ${migration_speed}" ; fi
+if [ ${migration_speed} -ne 0 ] ; then sleep 5 && pvesh create  ${i}/qemu/${j}/monitor -command \"block_job_set_speed drive-${k} ${migration_speed}\" ; fi
 fg %1
 done
 done
